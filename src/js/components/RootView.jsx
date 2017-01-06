@@ -10,28 +10,27 @@ export default class RootView extends React.Component {
 		super();
 		this.state = {
 			inputText: 'Default text from input',
-			areaText: 'This is text from textarea'
+			areaText: '---'
 		};
 
 		this.updateInput = this.updateInput.bind(this);
+		this.currentEvent = this.currentEvent.bind(this);
 	}
 
 	updateInput( event ){
 		this.setState({inputText: event.target.value.toUpperCase()});
 	}
 
-	updateArea( event ){
-		this.setState({areaText: event.target.value});
+	currentEvent( event ){
+		this.setState({areaText: event.type});
 	}
 
 	render() {
 		return (
 			<div className="RootView">
 				<ChangeInput inputText={this.state.inputText}  update={this.updateInput} />
-				<TextareaElement areaText={this.state.areaTxt} onChange={this.updateArea.bind(this)} />
-				<Button  buttonText='React'>
-					<Heart />
-				</Button>
+				<TextareaElement onKeyPress={this.currentEvent} areaText={this.state.areaText} />
+				<Button> I <Heart /> React </Button>
 			</div>
 		);
 	}
