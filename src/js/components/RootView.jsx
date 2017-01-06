@@ -1,24 +1,37 @@
 import React from "react";
 import ChangeInput from './ChangeInput.jsx';
-
+import TextareaElement from './TextareaElement.jsx';
+import Button from './Button.jsx';
+import Heart from './Heart.jsx';
 
 export default class RootView extends React.Component {
 
 	constructor(){
 		super();
-		this.state = {txt: ''};
+		this.state = {
+			inputText: 'Default text from input',
+			areaText: 'This is text from textarea'
+		};
 
 		this.updateInput = this.updateInput.bind(this);
 	}
 
 	updateInput( event ){
-		this.setState({txt: event.target.value});
+		this.setState({inputText: event.target.value.toUpperCase()});
+	}
+
+	updateArea( event ){
+		this.setState({areaText: event.target.value});
 	}
 
 	render() {
 		return (
 			<div className="RootView">
-				<ChangeInput inputTxt={this.state.txt} onChange={this.updateInput} />
+				<ChangeInput inputText={this.state.inputText}  update={this.updateInput} />
+				<TextareaElement areaText={this.state.areaTxt} onChange={this.updateArea.bind(this)} />
+				<Button  buttonText='React'>
+					<Heart />
+				</Button>
 			</div>
 		);
 	}

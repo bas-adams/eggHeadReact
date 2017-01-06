@@ -4,8 +4,8 @@ export default class ChangeInput extends React.Component{
 	render(){
 		return (
 			<div>
-				<input type='text' onChange={this.props.onChange} />
-				<h1>{this.props.inputTxt}</h1>
+				<h1>{this.props.inputText}</h1>
+				<input type='text' onChange={this.props.update} />
 			</div>	
 			);
 	}
