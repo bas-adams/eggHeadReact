@@ -19,9 +19,11 @@
   },
   "scripts": {
     "buildCss": "./node_modules/node-sass/bin/node-sass ./src/scss/main.scss ./public/main.css",
-    "buildJs": "./node_modules/webpack/bin/webpack.js -p",
+    "buildJS": "./node_modules/webpack/bin/webpack.js -p",
     "watchCss": "./node_modules/node-sass/bin/node-sass --watch --recursive ./src/scss --output ./public",
-    "watchJs": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --content-base=./public "
+    "myWatchCss": "node-sass --watch --recursive ./src/scss --output ./public",
+    "watchJS": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --content-base=./public",
+    "myWatchJS": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --content-base=./public"
   },
   "keywords": [],
   "author": "pw",
